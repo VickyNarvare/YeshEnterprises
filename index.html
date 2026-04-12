@@ -29,6 +29,7 @@
   </button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#home"         class="nav-link">Home</a></li>
+    <li><a href="#about"        class="nav-link">About</a></li>
     <li class="has-dropdown">
       <div class="nav-link-row">
         <a href="#services" class="nav-link">Services</a>
@@ -43,10 +44,8 @@
         <li><a href="#services" class="sub-link"><span class="sub-icon k-bg"><i class="fas fa-box-open"></i></span><span>Cartridge Supply</span></a></li>
       </ul>
     </li>
-    <li><a href="#about"        class="nav-link">About</a></li>
     <li><a href="#gallery"      class="nav-link">Gallery</a></li>
     <li><a href="#testimonials" class="nav-link">Reviews</a></li>
-    <li><a href="#faq"          class="nav-link">FAQ</a></li>
     <li><a href="#contact"      class="nav-link">Contact</a></li>
   </ul>
 </nav>
@@ -54,38 +53,91 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <!-- background layers -->
+  <div class="hero-grid-bg"></div>
   <div class="ink-blob b1"></div>
   <div class="ink-blob b2"></div>
   <div class="ink-blob b3"></div>
+  <div class="ink-blob b4"></div>
+
   <div class="hero-inner">
     <div class="hero-text reveal">
+      <!-- badge -->
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Mumbai's #1 Printer Service
+      </div>
+
+      <!-- CMYK pills -->
       <div class="cmyk-pills">
         <span class="pill c-pill">C</span>
         <span class="pill m-pill">M</span>
         <span class="pill y-pill">Y</span>
         <span class="pill k-pill">K</span>
       </div>
+
       <h1>YESH<br/><span class="grad-text">ENTERPRISES</span></h1>
+
       <p class="typing-wrap">
         <span class="typing-static">We provide </span><span class="typing-cursor" id="typingText"></span>
       </p>
-      <p class="hero-desc">Mumbai's trusted partner for all toner refills and printer repairs. Fast turnaround. All brands.</p>
+
+      <p class="hero-desc">Mumbai's trusted partner for all toner refills and printer repairs. Fast turnaround. All brands covered.</p>
+
+      <!-- mini stats -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-n">500+</span>
+          <span class="hero-stat-l">Happy Clients</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-n">25+</span>
+          <span class="hero-stat-l">Years Exp.</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-n">All</span>
+          <span class="hero-stat-l">Brands</span>
+        </div>
+      </div>
+
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary ripple">Get a Quote</a>
-        <a href="#services" class="btn btn-ghost">Our Services</a>
+        <a href="#contact" class="btn btn-primary ripple"><i class="fas fa-paper-plane"></i> Get a Quote</a>
+        <a href="#services" class="btn btn-ghost"><i class="fas fa-print"></i> Our Services</a>
       </div>
     </div>
+
     <div class="hero-visual reveal">
       <div class="printer-card">
+        <!-- glow ring -->
+        <div class="printer-glow"></div>
         <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" class="printer-svg">
-          <rect x="20" y="60" width="160" height="80" rx="10" fill="#1A1A2E" opacity=".9"/>
-          <rect x="50" y="40" width="100" height="30" rx="6" fill="#2a2a4a"/>
-          <rect x="60" y="130" width="80" height="30" rx="4" fill="#2a2a4a"/>
-          <rect x="70" y="135" width="60" height="20" rx="3" fill="#fff" opacity=".08"/>
-          <circle cx="155" cy="100" r="8" fill="#00B4D8" opacity=".9"/>
-          <circle cx="135" cy="100" r="6" fill="#E040FB" opacity=".7"/>
-          <rect x="35" y="85" width="90" height="6" rx="3" fill="#fff" opacity=".07"/>
-          <rect x="35" y="97" width="60" height="4" rx="2" fill="#00B4D8" opacity=".5"/>
+          <!-- body -->
+          <rect x="20" y="58" width="160" height="82" rx="12" fill="#1A1A2E"/>
+          <rect x="20" y="58" width="160" height="82" rx="12" fill="none" stroke="rgba(0,180,216,.25)" stroke-width="1.5"/>
+          <!-- paper tray top -->
+          <rect x="48" y="36" width="104" height="32" rx="7" fill="#22223a"/>
+          <rect x="48" y="36" width="104" height="32" rx="7" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <!-- paper lines in tray -->
+          <rect x="60" y="44" width="80" height="3" rx="1.5" fill="rgba(255,255,255,.12)"/>
+          <rect x="60" y="51" width="60" height="3" rx="1.5" fill="rgba(255,255,255,.08)"/>
+          <!-- output tray -->
+          <rect x="58" y="130" width="84" height="28" rx="5" fill="#22223a"/>
+          <rect x="66" y="136" width="68" height="16" rx="3" fill="rgba(255,255,255,.05)"/>
+          <!-- paper coming out -->
+          <rect x="70" y="124" width="60" height="14" rx="2" fill="rgba(255,255,255,.9)"/>
+          <rect x="76" y="128" width="40" height="2" rx="1" fill="rgba(0,180,216,.6)"/>
+          <rect x="76" y="132" width="28" height="2" rx="1" fill="rgba(224,64,251,.4)"/>
+          <!-- status lights -->
+          <circle cx="158" cy="96" r="6" fill="#00B4D8" opacity=".9"/>
+          <circle cx="158" cy="96" r="10" fill="#00B4D8" opacity=".15"/>
+          <circle cx="140" cy="96" r="5" fill="#E040FB" opacity=".8"/>
+          <circle cx="124" cy="96" r="4" fill="#FFD600" opacity=".7"/>
+          <!-- vent lines -->
+          <rect x="32" y="82" width="72" height="4" rx="2" fill="rgba(255,255,255,.06)"/>
+          <rect x="32" y="92" width="56" height="4" rx="2" fill="rgba(255,255,255,.04)"/>
+          <rect x="32" y="102" width="64" height="4" rx="2" fill="rgba(255,255,255,.06)"/>
         </svg>
         <div class="ink-drops">
           <span class="drop d-c"></span>
@@ -93,10 +145,47 @@
           <span class="drop d-y"></span>
           <span class="drop d-k"></span>
         </div>
+        <!-- brand labels -->
+        <div class="printer-brands">
+          <span>HP</span><span>Canon</span><span>Epson</span><span>Brother</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="scroll-hint"><span></span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-col reveal">
+        <div class="about-img-wrap">
+          <div class="photo-ph">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="about-badge">
+            <span class="badge-num">25+</span>
+            <span class="badge-lbl">Years Experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="sec-tag">Who We Are</span>
+        <h2>About Us</h2>
+        <div class="divider left"></div>
+        <h3 class="proprietor-name">Dinesh Narvare <span>— Proprietor</span></h3>
+        <p>With over a decade of hands-on experience, <strong>Dinesh Narvare</strong> founded YESH ENTERPRISES with a clear mission — to deliver affordable, reliable, and high-quality printer solutions to businesses and individuals across Mumbai.</p>
+        <p>From small home offices to large corporate setups, we've built a reputation for fast service, genuine parts, and unmatched customer satisfaction.</p>
+        <div class="about-stats">
+          <div class="stat-box"><span class="stat-n c-text">500+</span><span class="stat-l">Happy Clients</span></div>
+          <div class="stat-box"><span class="stat-n m-text">25+</span><span class="stat-l">Years Experience</span></div>
+          <div class="stat-box"><span class="stat-n y-text">All</span><span class="stat-l">Brands Covered</span></div>
+        </div>
+        <a href="#contact" class="btn btn-primary ripple">Get in Touch</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -166,39 +255,6 @@
         <a href="#contact" class="svc-link">Book Now <i class="fas fa-arrow-right"></i></a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about section" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-col reveal">
-        <div class="about-img-wrap">
-          <div class="photo-ph">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <div class="about-badge">
-            <span class="badge-num">25+</span>
-            <span class="badge-lbl">Years Experience</span>
-          </div>
-        </div>
-      </div>
-      <div class="about-content reveal">
-        <span class="sec-tag">Who We Are</span>
-        <h2>About Us</h2>
-        <div class="divider left"></div>
-        <h3 class="proprietor-name">Dinesh Narvare <span>— Proprietor</span></h3>
-        <p>With over a decade of hands-on experience, <strong>Dinesh Narvare</strong> founded YESH ENTERPRISES with a clear mission — to deliver affordable, reliable, and high-quality printer solutions to businesses and individuals across Mumbai.</p>
-        <p>From small home offices to large corporate setups, we've built a reputation for fast service, genuine parts, and unmatched customer satisfaction.</p>
-        <div class="about-stats">
-          <div class="stat-box"><span class="stat-n c-text">500+</span><span class="stat-l">Happy Clients</span></div>
-          <div class="stat-box"><span class="stat-n m-text">25+</span><span class="stat-l">Years Experience</span></div>
-          <div class="stat-box"><span class="stat-n y-text">All</span><span class="stat-l">Brands Covered</span></div>
-        </div>
-        <a href="#contact" class="btn btn-primary ripple">Get in Touch</a>
-      </div>
     </div>
   </div>
 </section>
