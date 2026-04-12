@@ -70,6 +70,14 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// ── TESTIMONIAL INFINITE MARQUEE ──
+const track = document.getElementById('testiTrack');
+if (track) {
+  // clone all cards and append for seamless loop
+  const cards = track.innerHTML;
+  track.innerHTML = cards + cards;
+}
+
 // ── TYPING EFFECT ──
 const phrases = [
   'Toner Refills.',
