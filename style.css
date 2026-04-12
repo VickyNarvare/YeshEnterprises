@@ -113,12 +113,12 @@ img {
 .sec-head h2 {
   font-size: clamp(1.9rem, 4vw, 2.8rem);
   font-weight: 900;
-  color: var(--k);
+  color: var(--white);
   letter-spacing: -.5px
 }
 
 .sec-head p {
-  color: #666;
+  color: rgba(255,255,255,.45);
   margin-top: 10px;
   font-size: 1.05rem
 }
@@ -829,8 +829,6 @@ img {
   overflow: hidden
 }
 
-.services .sec-head h2 { color: rgba(255,255,255,.9) }
-.services .sec-head p  { color: rgba(255,255,255,.45) }
 .services .sec-tag {
   background: rgba(0,180,216,.15);
   color: var(--c)
@@ -1040,7 +1038,18 @@ img {
 
 /* ── ABOUT ── */
 .about {
-  background: var(--white)
+  background: var(--k);
+  position: relative;
+  overflow: hidden
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none
 }
 
 .about-grid {
@@ -1058,7 +1067,8 @@ img {
 .photo-ph {
   width: 300px;
   height: 340px;
-  background: linear-gradient(135deg, var(--k), #2a2a4a);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -1104,25 +1114,25 @@ img {
 .about-content h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 900;
-  color: var(--k);
+  color: var(--white);
   margin-bottom: 4px
 }
 
 .proprietor-name {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--k);
+  color: var(--white);
   margin: 18px 0 14px
 }
 
 .proprietor-name span {
   font-weight: 400;
-  color: #888;
+  color: rgba(255,255,255,.4);
   font-size: 1rem
 }
 
 .about-content p {
-  color: #555;
+  color: rgba(255,255,255,.5);
   line-height: 1.75;
   font-size: .97rem;
   margin-bottom: 14px
@@ -1148,13 +1158,23 @@ img {
 
 .stat-l {
   font-size: .78rem;
-  color: #888;
+  color: rgba(255,255,255,.4);
   margin-top: 4px
 }
 
 /* ── GALLERY ── */
 .gallery {
-  background: var(--gray)
+  background: var(--k);
+  position: relative
+}
+
+.gallery::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none
 }
 
 .gallery-grid {
@@ -1226,7 +1246,7 @@ img {
 
 /* ── TESTIMONIALS ── */
 .testimonials {
-  background: var(--gray);
+  background: var(--k);
   overflow: hidden;
 }
 
@@ -1235,11 +1255,11 @@ img {
   display: flex;
   align-items: center;
   gap: 32px;
-  background: var(--white);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: 18px;
   padding: 24px 32px;
   margin-bottom: 52px;
-  box-shadow: var(--shadow);
   flex-wrap: wrap
 }
 
@@ -1252,7 +1272,7 @@ img {
 .testi-big-score {
   font-size: 3.2rem;
   font-weight: 900;
-  color: var(--k);
+  color: var(--white);
   line-height: 1
 }
 
@@ -1266,7 +1286,7 @@ img {
 
 .testi-rating-label {
   font-size: .75rem;
-  color: #999;
+  color: rgba(255,255,255,.35);
   text-transform: uppercase;
   letter-spacing: 1px
 }
@@ -1274,7 +1294,7 @@ img {
 .testi-rating-divider {
   width: 1px;
   height: 48px;
-  background: #e4e4e4;
+  background: rgba(255,255,255,.1);
   flex-shrink: 0
 }
 
@@ -1293,13 +1313,13 @@ img {
 .testi-rstat-n {
   font-size: 1.6rem;
   font-weight: 900;
-  color: var(--k);
+  color: var(--white);
   line-height: 1
 }
 
 .testi-rstat-l {
   font-size: .72rem;
-  color: #999;
+  color: rgba(255,255,255,.35);
   text-transform: uppercase;
   letter-spacing: 1px
 }
@@ -1346,20 +1366,21 @@ img {
 
 /* cards */
 .testi-card {
-  background: var(--white);
+  background: rgba(255,255,255,.04);
   border-radius: 18px;
   padding: 28px 26px 24px;
-  box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  box-shadow: none;
   width: 320px;
   flex-shrink: 0;
   position: relative;
   transition: transform var(--tr), box-shadow var(--tr);
-  border: 1px solid rgba(0,0,0,.05)
+  border: 1px solid rgba(255,255,255,.08)
 }
 
 .testi-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg)
+  box-shadow: 0 16px 48px rgba(0,0,0,.4);
+  border-color: rgba(0,180,216,.25)
 }
 
 .testi-quote {
@@ -1378,7 +1399,7 @@ img {
 }
 
 .testi-card p {
-  color: #555;
+  color: rgba(255,255,255,.5);
   font-size: .91rem;
   line-height: 1.72;
   font-style: italic;
@@ -1390,7 +1411,7 @@ img {
   align-items: center;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px solid #f0f0f0
+  border-top: 1px solid rgba(255,255,255,.07)
 }
 
 .testi-avatar {
@@ -1411,12 +1432,12 @@ img {
 .testi-author strong {
   display: block;
   font-size: .9rem;
-  color: var(--k)
+  color: var(--white)
 }
 
 .testi-author span {
   font-size: .76rem;
-  color: #aaa
+  color: rgba(255,255,255,.35)
 }
 
 /* ── FAQ ── */
@@ -1596,7 +1617,17 @@ img {
 
 /* ── CONTACT ── */
 .contact {
-  background: var(--gray)
+  background: var(--k);
+  position: relative
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none
 }
 
 .contact-grid {
@@ -1665,17 +1696,17 @@ img {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background: var(--white);
+  background: rgba(255,255,255,.04);
   padding: 18px 20px;
   border-radius: 14px;
-  border: 1px solid rgba(0,0,0,.05);
-  box-shadow: 0 2px 12px rgba(0,0,0,.05);
-  transition: transform var(--tr), box-shadow var(--tr)
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: none;
+  transition: transform var(--tr), border-color var(--tr)
 }
 
 .info-item:hover {
   transform: translateX(5px);
-  box-shadow: 0 6px 24px rgba(0,0,0,.09)
+  border-color: rgba(0,180,216,.25)
 }
 
 .info-icon {
@@ -1703,7 +1734,7 @@ img {
 
 .info-item a,
 .info-item p {
-  color: var(--k);
+  color: rgba(255,255,255,.75);
   font-weight: 600;
   font-size: .92rem;
   line-height: 1.55
@@ -1762,29 +1793,28 @@ img {
 
 /* form wrap */
 .contact-form-wrap {
-  background: var(--white);
+  background: rgba(255,255,255,.04);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 4px 32px rgba(0,0,0,.08);
-  border: 1px solid rgba(0,0,0,.05)
+  border: 1px solid rgba(255,255,255,.08)
 }
 
 .form-header {
   margin-bottom: 28px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #f0f0f0
+  border-bottom: 1px solid rgba(255,255,255,.07)
 }
 
 .form-header h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--k);
+  color: var(--white);
   margin-bottom: 4px
 }
 
 .form-header p {
   font-size: .85rem;
-  color: #999
+  color: rgba(255,255,255,.35)
 }
 
 .form-row {
@@ -1804,7 +1834,7 @@ img {
   font-weight: 700;
   font-size: .82rem;
   margin-bottom: 7px;
-  color: var(--k);
+  color: rgba(255,255,255,.7);
   text-transform: uppercase;
   letter-spacing: .5px
 }
@@ -1827,14 +1857,14 @@ img {
 .form-group select {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #eee;
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: 10px;
   font-size: .93rem;
   font-family: inherit;
   transition: border-color var(--tr), box-shadow var(--tr);
   outline: none;
-  color: var(--text);
-  background: var(--gray);
+  color: var(--white);
+  background: rgba(255,255,255,.06);
   resize: none
 }
 
@@ -1842,8 +1872,18 @@ img {
 .form-group textarea:focus,
 .form-group select:focus {
   border-color: var(--c);
-  background: var(--white);
+  background: rgba(255,255,255,.09);
   box-shadow: 0 0 0 3px rgba(0,180,216,.1)
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,.25)
+}
+
+.form-group select option {
+  background: var(--k);
+  color: var(--white)
 }
 
 .form-group input.err-field,
