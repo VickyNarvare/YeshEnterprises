@@ -73,9 +73,11 @@ backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smo
 // ── TESTIMONIAL INFINITE MARQUEE ──
 const track = document.getElementById('testiTrack');
 if (track) {
-  // clone all cards and append for seamless loop
-  const cards = track.innerHTML;
-  track.innerHTML = cards + cards;
+  track.innerHTML = track.innerHTML + track.innerHTML;
+}
+const track2 = document.getElementById('testiTrack2');
+if (track2) {
+  track2.innerHTML = track2.innerHTML + track2.innerHTML;
 }
 
 // ── TYPING EFFECT ──
@@ -131,9 +133,7 @@ function closeAllFaq() {
   });
 }
 
-// Open first FAQ by default
-if (faqItems.length) openFaq(faqItems[0]);
-
+// First item already open via HTML; no need to force open
 faqItems.forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
     const isOpen = item.querySelector('.faq-q').getAttribute('aria-expanded') === 'true';
