@@ -1886,6 +1886,109 @@ img {
   color: var(--white)
 }
 
+/* ── CUSTOM SELECT ── */
+.custom-select {
+  position: relative;
+  user-select: none
+}
+
+.cs-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 15px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  color: rgba(255,255,255,.35);
+  font-size: .93rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color var(--tr), background var(--tr), box-shadow var(--tr);
+  text-align: left
+}
+
+.cs-trigger.has-value {
+  color: var(--white)
+}
+
+.cs-trigger:focus,
+.custom-select.open .cs-trigger {
+  border-color: var(--c);
+  background: rgba(255,255,255,.09);
+  box-shadow: 0 0 0 3px rgba(0,180,216,.1);
+  outline: none
+}
+
+.cs-arrow {
+  font-size: .7rem;
+  color: rgba(255,255,255,.3);
+  flex-shrink: 0;
+  transition: transform .3s cubic-bezier(.23,1,.32,1), color .2s
+}
+
+.custom-select.open .cs-arrow {
+  transform: rotate(180deg);
+  color: var(--c)
+}
+
+.cs-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: rgba(13,13,26,.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 6px;
+  z-index: 200;
+  box-shadow: 0 16px 48px rgba(0,0,0,.6);
+  opacity: 0;
+  transform: translateY(-6px) scale(.98);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .25s cubic-bezier(.23,1,.32,1)
+}
+
+.custom-select.open .cs-dropdown {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all
+}
+
+.cs-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 9px;
+  font-size: .92rem;
+  color: rgba(255,255,255,.6);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  font-family: inherit
+}
+
+.cs-option:hover {
+  background: rgba(255,255,255,.07);
+  color: var(--white)
+}
+
+.cs-option.selected {
+  background: rgba(0,180,216,.12);
+  color: var(--c)
+}
+
+.cs-option i {
+  width: 16px;
+  text-align: center;
+  font-size: .82rem;
+  flex-shrink: 0
+}
+
 .form-group input.err-field,
 .form-group textarea.err-field {
   border-color: var(--m)

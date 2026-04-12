@@ -653,14 +653,20 @@
           </div>
           <div class="form-group">
             <label for="fservice"><i class="fas fa-print"></i> Service Required</label>
-            <select id="fservice">
-              <option value="">Select a service…</option>
-              <option>Toner Refill</option>
-              <option>Printer Repair</option>
-              <option>Maintenance / AMC</option>
-              <option>Cartridge Supply</option>
-              <option>Other</option>
-            </select>
+            <div class="custom-select" id="customSelect">
+              <button type="button" class="cs-trigger" id="csTrigger" aria-haspopup="listbox" aria-expanded="false">
+                <span id="csValue">Select a service…</span>
+                <i class="fas fa-chevron-down cs-arrow"></i>
+              </button>
+              <ul class="cs-dropdown" role="listbox" id="csDropdown">
+                <li class="cs-option" data-value="Toner Refill" role="option"><i class="fas fa-fill-drip c-text"></i> Toner Refill</li>
+                <li class="cs-option" data-value="Printer Repair" role="option"><i class="fas fa-screwdriver-wrench m-text"></i> Printer Repair</li>
+                <li class="cs-option" data-value="Maintenance / AMC" role="option"><i class="fas fa-shield-halved y-text"></i> Maintenance / AMC</li>
+                <li class="cs-option" data-value="Cartridge Supply" role="option"><i class="fas fa-box-open" style="color:rgba(255,255,255,.5)"></i> Cartridge Supply</li>
+                <li class="cs-option" data-value="Other" role="option"><i class="fas fa-ellipsis" style="color:rgba(255,255,255,.5)"></i> Other</li>
+              </ul>
+              <input type="hidden" id="fservice" name="fservice"/>
+            </div>
           </div>
           <div class="form-group">
             <label for="fmsg"><i class="fas fa-comment-dots"></i> Message</label>

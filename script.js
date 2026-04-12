@@ -142,7 +142,40 @@ faqItems.forEach(item => {
   });
 });
 
-// ── CONTACT FORM VALIDATION ──
+// ── CUSTOM SELECT ──
+const customSelect = document.getElementById('customSelect');
+const csTrigger    = document.getElementById('csTrigger');
+const csDropdown   = document.getElementById('csDropdown');
+const csValue      = document.getElementById('csValue');
+const fsHidden     = document.getElementById('fservice');
+
+function closeSelect() {
+  customSelect.classList.remove('open');
+  csTrigger.setAttribute('aria-expanded', 'false');
+}
+
+csTrigger.addEventListener('click', e => {
+  e.stopPropagation();
+  const isOpen = customSelect.classList.toggle('open');
+  csTrigger.setAttribute('aria-expanded', isOpen);
+});
+
+csDropdown.querySelectorAll('.cs-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const val = opt.dataset.value;
+    csValue.textContent = val;
+    fsHidden.value = val;
+    csTrigger.classList.add('has-value');
+    csDropdown.querySelectorAll('.cs-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    closeSelect();
+  });
+});
+
+document.addEventListener('click', closeSelect);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSelect(); });
+
+
 const form     = document.getElementById('contactForm');
 const feedback = document.getElementById('formFeedback');
 
