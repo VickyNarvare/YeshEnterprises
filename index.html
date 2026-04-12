@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="YESH ENTERPRISES – Professional toner refill and printer repair service in Mumbai. All brands covered."/>
+  <meta name="keywords" content="toner refill, printer repair, printer service, Mumbai, HP, Canon, Epson, cartridge"/>
+  <meta name="author" content="Dinesh Narvare"/>
+  <meta property="og:title" content="YESH ENTERPRISES – Toner Refill & Printer Service"/>
+  <meta property="og:description" content="Fast, reliable toner refills and printer repairs in Mumbai."/>
+  <title>YESH ENTERPRISES – Toner Refill &amp; Printer Service</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="nav-brand">
+    <span class="c">Y</span><span class="m">E</span><span class="y">S</span><span class="k">H</span><span class="brand-rest"> ENTERPRISES</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home"         class="nav-link">Home</a></li>
+    <li class="has-dropdown">
+      <div class="nav-link-row">
+        <a href="#services" class="nav-link">Services</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Toggle services menu">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <ul class="dropdown">
+        <li><a href="#services" class="sub-link"><span class="sub-icon c-bg"><i class="fas fa-fill-drip"></i></span><span>Toner Refills</span></a></li>
+        <li><a href="#services" class="sub-link"><span class="sub-icon m-bg"><i class="fas fa-tools"></i></span><span>Printer Repair</span></a></li>
+        <li><a href="#services" class="sub-link"><span class="sub-icon y-bg"><i class="fas fa-print"></i></span><span>Maintenance</span></a></li>
+        <li><a href="#services" class="sub-link"><span class="sub-icon k-bg"><i class="fas fa-box-open"></i></span><span>Cartridge Supply</span></a></li>
+      </ul>
+    </li>
+    <li><a href="#about"        class="nav-link">About</a></li>
+    <li><a href="#gallery"      class="nav-link">Gallery</a></li>
+    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+    <li><a href="#faq"          class="nav-link">FAQ</a></li>
+    <li><a href="#contact"      class="nav-link">Contact</a></li>
+  </ul>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="ink-blob b1"></div>
+  <div class="ink-blob b2"></div>
+  <div class="ink-blob b3"></div>
+  <div class="hero-inner">
+    <div class="hero-text reveal">
+      <div class="cmyk-pills">
+        <span class="pill c-pill">C</span>
+        <span class="pill m-pill">M</span>
+        <span class="pill y-pill">Y</span>
+        <span class="pill k-pill">K</span>
+      </div>
+      <h1>YESH<br/><span class="grad-text">ENTERPRISES</span></h1>
+      <p class="typing-wrap">
+        <span class="typing-static">We provide </span><span class="typing-cursor" id="typingText"></span>
+      </p>
+      <p class="hero-desc">Mumbai's trusted partner for all toner refills and printer repairs. Fast turnaround. All brands.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary ripple">Get a Quote</a>
+        <a href="#services" class="btn btn-ghost">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="printer-card">
+        <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" class="printer-svg">
+          <rect x="20" y="60" width="160" height="80" rx="10" fill="#1A1A2E" opacity=".9"/>
+          <rect x="50" y="40" width="100" height="30" rx="6" fill="#2a2a4a"/>
+          <rect x="60" y="130" width="80" height="30" rx="4" fill="#2a2a4a"/>
+          <rect x="70" y="135" width="60" height="20" rx="3" fill="#fff" opacity=".08"/>
+          <circle cx="155" cy="100" r="8" fill="#00B4D8" opacity=".9"/>
+          <circle cx="135" cy="100" r="6" fill="#E040FB" opacity=".7"/>
+          <rect x="35" y="85" width="90" height="6" rx="3" fill="#fff" opacity=".07"/>
+          <rect x="35" y="97" width="60" height="4" rx="2" fill="#00B4D8" opacity=".5"/>
+        </svg>
+        <div class="ink-drops">
+          <span class="drop d-c"></span>
+          <span class="drop d-m"></span>
+          <span class="drop d-y"></span>
+          <span class="drop d-k"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span></div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">What We Do</span>
+      <h2>Our Services</h2>
+      <p>Everything your printer needs, under one roof.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal" style="--delay:.05s">
+        <div class="svc-icon-wrap c-bg">
+          <svg viewBox="0 0 48 48" class="svc-svg"><path d="M24 6C14 6 8 14 8 22c0 6 4 10 8 12v6h16v-6c4-2 8-6 8-12 0-8-6-16-16-16z" fill="none" stroke="#fff" stroke-width="2.5"/><ellipse cx="24" cy="22" rx="6" ry="8" fill="#fff" opacity=".3"/><line x1="24" y1="40" x2="24" y2="44" stroke="#fff" stroke-width="2.5"/></svg>
+        </div>
+        <h3>Toner Refills</h3>
+        <p>OEM-grade toner powder for all major brands. Crisp, clear prints every time with quick turnaround.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-check-circle"></i> HP, Canon, Epson, Brother</li>
+          <li><i class="fas fa-check-circle"></i> All cartridge types</li>
+          <li><i class="fas fa-check-circle"></i> Same-day service</li>
+        </ul>
+        <a href="#contact" class="svc-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="svc-card reveal" style="--delay:.1s">
+        <div class="svc-icon-wrap m-bg">
+          <svg viewBox="0 0 48 48" class="svc-svg"><rect x="8" y="18" width="32" height="20" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><rect x="14" y="10" width="20" height="12" rx="3" fill="none" stroke="#fff" stroke-width="2"/><rect x="14" y="28" width="20" height="8" rx="2" fill="#fff" opacity=".2"/><circle cx="34" cy="26" r="3" fill="#fff" opacity=".8"/></svg>
+        </div>
+        <h3>Printer Repair</h3>
+        <p>Expert diagnosis and repair for all printer models. From paper jams to hardware failures, we fix it fast.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-check-circle"></i> All brands serviced</li>
+          <li><i class="fas fa-check-circle"></i> Hardware &amp; software</li>
+          <li><i class="fas fa-check-circle"></i> On-site &amp; in-shop</li>
+        </ul>
+        <a href="#contact" class="svc-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="svc-card reveal" style="--delay:.15s">
+        <div class="svc-icon-wrap y-bg">
+          <svg viewBox="0 0 48 48" class="svc-svg"><circle cx="24" cy="24" r="16" fill="none" stroke="#1A1A2E" stroke-width="2.5"/><path d="M16 24l5 5 11-10" stroke="#1A1A2E" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Maintenance</h3>
+        <p>Preventive servicing to extend printer life and ensure consistent performance. AMC contracts available.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-check-circle"></i> Deep cleaning</li>
+          <li><i class="fas fa-check-circle"></i> Drum &amp; roller replacement</li>
+          <li><i class="fas fa-check-circle"></i> AMC contracts</li>
+        </ul>
+        <a href="#contact" class="svc-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="svc-card reveal" style="--delay:.2s">
+        <div class="svc-icon-wrap k-bg">
+          <svg viewBox="0 0 48 48" class="svc-svg"><rect x="10" y="14" width="28" height="22" rx="4" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M16 14v-4h16v4" stroke="#fff" stroke-width="2" fill="none"/><line x1="16" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="2" opacity=".5"/><line x1="16" y1="28" x2="26" y2="28" stroke="#fff" stroke-width="2" opacity=".5"/></svg>
+        </div>
+        <h3>Cartridge Supply</h3>
+        <p>Original and compatible cartridges at competitive prices. Bulk orders welcome with doorstep delivery.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-check-circle"></i> Original &amp; compatible</li>
+          <li><i class="fas fa-check-circle"></i> Bulk orders</li>
+          <li><i class="fas fa-check-circle"></i> Doorstep delivery</li>
+        </ul>
+        <a href="#contact" class="svc-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-col reveal">
+        <div class="about-img-wrap">
+          <div class="photo-ph">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="about-badge">
+            <span class="badge-num">10+</span>
+            <span class="badge-lbl">Years Experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="sec-tag">Who We Are</span>
+        <h2>About Us</h2>
+        <div class="divider left"></div>
+        <h3 class="proprietor-name">Dinesh Narvare <span>— Proprietor</span></h3>
+        <p>With over a decade of hands-on experience, <strong>Dinesh Narvare</strong> founded YESH ENTERPRISES with a clear mission — to deliver affordable, reliable, and high-quality printer solutions to businesses and individuals across Mumbai.</p>
+        <p>From small home offices to large corporate setups, we've built a reputation for fast service, genuine parts, and unmatched customer satisfaction.</p>
+        <div class="about-stats">
+          <div class="stat-box"><span class="stat-n c-text">500+</span><span class="stat-l">Happy Clients</span></div>
+          <div class="stat-box"><span class="stat-n m-text">10+</span><span class="stat-l">Years Experience</span></div>
+          <div class="stat-box"><span class="stat-n y-text">All</span><span class="stat-l">Brands Covered</span></div>
+        </div>
+        <a href="#contact" class="btn btn-primary ripple">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section" id="gallery">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Our Work</span>
+      <h2>Gallery</h2>
+      <p>A glimpse of our workspace and services.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gal-item reveal" style="--delay:.05s">
+        <div class="gal-ph gal-1"><i class="fas fa-print"></i><span>Printer Repair</span></div>
+      </div>
+      <div class="gal-item reveal" style="--delay:.1s">
+        <div class="gal-ph gal-2"><i class="fas fa-fill-drip"></i><span>Toner Refill</span></div>
+      </div>
+      <div class="gal-item reveal" style="--delay:.15s">
+        <div class="gal-ph gal-3"><i class="fas fa-box-open"></i><span>Cartridge Stock</span></div>
+      </div>
+      <div class="gal-item reveal" style="--delay:.2s">
+        <div class="gal-ph gal-4"><i class="fas fa-tools"></i><span>Workshop</span></div>
+      </div>
+      <div class="gal-item reveal" style="--delay:.25s">
+        <div class="gal-ph gal-5"><i class="fas fa-cogs"></i><span>Maintenance</span></div>
+      </div>
+      <div class="gal-item reveal" style="--delay:.3s">
+        <div class="gal-ph gal-6"><i class="fas fa-check-double"></i><span>Quality Check</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials section" id="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">What Clients Say</span>
+      <h2>Testimonials</h2>
+      <p>Real feedback from our happy customers.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card reveal" style="--delay:.05s">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Excellent service! Got my HP printer repaired within the same day. Very professional and affordable. Highly recommended!"</p>
+        <div class="testi-author"><div class="testi-avatar c-bg">R</div><div><strong>Rahul Sharma</strong><span>Small Business Owner</span></div></div>
+      </div>
+
+      <div class="testi-card reveal" style="--delay:.1s">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Dinesh bhai is very knowledgeable. Toner refill quality is top-notch. My prints look as good as new cartridges!"</p>
+        <div class="testi-author"><div class="testi-avatar m-bg">P</div><div><strong>Priya Mehta</strong><span>Office Manager</span></div></div>
+      </div>
+
+      <div class="testi-card reveal" style="--delay:.15s">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p>"We have an AMC with YESH ENTERPRISES for our 10 office printers. Zero downtime since we started. Great value!"</p>
+        <div class="testi-author"><div class="testi-avatar y-bg">S</div><div><strong>Suresh Patil</strong><span>IT Manager, Corp</span></div></div>
+      </div>
+
+      <div class="testi-card reveal" style="--delay:.2s">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Fast, reliable, and honest pricing. They diagnosed the issue quickly and fixed it without overcharging. Will return!"</p>
+        <div class="testi-author"><div class="testi-avatar k-bg">A</div><div><strong>Anjali Desai</strong><span>Freelancer</span></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Got Questions?</span>
+      <h2>FAQ</h2>
+      <p>Answers to the most common questions.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>How long does a toner refill take?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-a"><p>Most toner refills are completed within 30–60 minutes while you wait. For bulk orders or special cartridges, same-day service is available.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Which printer brands do you service?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-a"><p>We service all major brands including HP, Canon, Epson, Brother, Samsung, Ricoh, Xerox, and more. Both inkjet and laser printers are covered.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you offer on-site printer repair?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-a"><p>Yes! We offer on-site repair services for corporate clients and bulk orders. Contact us to schedule a visit at your location in Mumbai.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Is the refilled toner quality as good as original?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-a"><p>We use OEM-grade toner powder that matches original specifications. Print quality, yield, and density are comparable to original cartridges.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>What is an AMC and how does it work?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-a"><p>An Annual Maintenance Contract (AMC) covers regular servicing, cleaning, and minor repairs for your printers throughout the year at a fixed cost. Ideal for offices with multiple printers.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you provide a warranty on repairs?</span>
+          <i class="fas fa-plus faq-icon"></i>
+        </button>
+        <div class="faq-a"><p>Yes, we provide a 30-day warranty on all repair work and a 15-day warranty on toner refills. If the issue recurs within the warranty period, we fix it free of charge.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Reach Out</span>
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you. Get in touch anytime.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+        <div class="info-item">
+          <div class="info-icon c-bg"><i class="fas fa-phone"></i></div>
+          <div><h4>Phone</h4><a href="tel:+918655466226">+91 86554 66226</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon m-bg"><i class="fas fa-envelope"></i></div>
+          <div><h4>Email</h4><a href="mailto:narvaredinesh56@gmail.com">narvaredinesh56@gmail.com</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon y-bg"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Address</h4><p>Vartak Nagar, Pokaran Road No. 1,<br/>Near Sai Baba Mandir, Mumbai.</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon k-bg"><i class="fas fa-clock"></i></div>
+          <div><h4>Hours</h4><p>Mon – Sat: 9:00 AM – 8:00 PM</p></div>
+        </div>
+        <div class="map-ph reveal">
+          <i class="fas fa-map-marked-alt"></i>
+          <span>Vartak Nagar, Mumbai</span>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="Full name"/>
+              <span class="err" id="fnameErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" placeholder="you@email.com"/>
+              <span class="err" id="femailErr"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone (optional)</label>
+            <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX"/>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Service Required</label>
+            <select id="fservice">
+              <option value="">Select a service…</option>
+              <option>Toner Refill</option>
+              <option>Printer Repair</option>
+              <option>Maintenance / AMC</option>
+              <option>Cartridge Supply</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" rows="4" placeholder="Describe your issue or requirement…"></textarea>
+            <span class="err" id="fmsgErr"></span>
+          </div>
+          <button type="submit" class="btn btn-primary ripple full-w">Send Message <i class="fas fa-paper-plane"></i></button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="c">Y</span><span class="m">E</span><span class="y">S</span><span class="k">H</span><span> ENTERPRISES</span>
+        </div>
+        <p>All Toner Refill &amp; Printer Service<br/>Mumbai, Maharashtra</p>
+        <div class="social-row">
+          <a href="#" class="soc-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/918655466226" class="soc-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Toner Refills</a></li>
+          <li><a href="#services">Printer Repair</a></li>
+          <li><a href="#services">Maintenance</a></li>
+          <li><a href="#services">Cartridge Supply</a></li>
+          <li><a href="#services">AMC Contracts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Newsletter</h4>
+        <p>Get tips and offers straight to your inbox.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <div class="nl-wrap">
+            <input type="email" id="nlEmail" placeholder="Your email address"/>
+            <button type="submit" class="btn btn-primary ripple">Subscribe</button>
+          </div>
+          <span class="err" id="nlErr"></span>
+          <div class="nl-success" id="nlSuccess">Thanks for subscribing!</div>
+        </form>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> YESH ENTERPRISES. All rights reserved. Designed with <i class="fas fa-heart" style="color:var(--m)"></i> in Mumbai.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
