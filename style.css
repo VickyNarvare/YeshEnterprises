@@ -291,6 +291,8 @@ img{max-width:100%}
 .nl-wrap .btn{padding:11px 20px;font-size:.85rem;white-space:nowrap}
 .nl-success{color:var(--c);font-size:.85rem;margin-top:8px;display:none}
 .footer-bottom{text-align:center;padding:22px 0;font-size:.82rem;color:rgba(255,255,255,.35)}
+.footer-credit{margin-top:6px;font-size:.8rem;color:rgba(255,255,255,.25)}
+.footer-credit span{color:var(--c);font-weight:600}
 
 /* ── REVEAL ANIMATION ── */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--delay,0s)}

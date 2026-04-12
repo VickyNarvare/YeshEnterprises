@@ -110,23 +110,27 @@ const revealObs = new IntersectionObserver((entries) => {
 revealEls.forEach(el => revealObs.observe(el));
 
 // ── FAQ ACCORDION ──
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item   = btn.closest('.faq-item');
-    const answer = item.querySelector('.faq-a');
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+const faqItems = document.querySelectorAll('.faq-item');
 
-    // close all
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-      i.querySelector('.faq-a').classList.remove('open');
-    });
+function openFaq(item) {
+  item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
+  item.querySelector('.faq-a').classList.add('open');
+}
+function closeAllFaq() {
+  faqItems.forEach(i => {
+    i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    i.querySelector('.faq-a').classList.remove('open');
+  });
+}
 
-    // open clicked if it was closed
-    if (!isOpen) {
-      btn.setAttribute('aria-expanded', 'true');
-      answer.classList.add('open');
-    }
+// Open first FAQ by default
+if (faqItems.length) openFaq(faqItems[0]);
+
+faqItems.forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.querySelector('.faq-q').getAttribute('aria-expanded') === 'true';
+    closeAllFaq();
+    if (!isOpen) openFaq(item);
   });
 });
 
