@@ -307,28 +307,103 @@
       <p>A glimpse of our workspace and services.</p>
       <div class="divider"></div>
     </div>
+
     <div class="gallery-grid">
-      <div class="gal-item reveal" style="--delay:.05s">
-        <div class="gal-ph gal-1"><i class="fas fa-print"></i><span>Printer Repair</span></div>
+
+      <div class="gal-item reveal" style="--delay:.05s" data-cat="repair" data-title="Printer Repair" data-desc="Expert diagnosis and same-day repair for all brands.">
+        <div class="gal-ph gal-1">
+          <div class="gal-icon"><i class="fas fa-print"></i></div>
+          <div class="gal-info">
+            <span class="gal-title">Printer Repair</span>
+            <span class="gal-sub">HP · Canon · Epson</span>
+          </div>
+          <div class="gal-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+        </div>
       </div>
-      <div class="gal-item reveal" style="--delay:.1s">
-        <div class="gal-ph gal-2"><i class="fas fa-fill-drip"></i><span>Toner Refill</span></div>
+
+      <div class="gal-item reveal" style="--delay:.1s" data-cat="toner" data-title="Toner Refill" data-desc="OEM-grade toner powder for crisp, clear prints every time.">
+        <div class="gal-ph gal-2">
+          <div class="gal-icon"><i class="fas fa-fill-drip"></i></div>
+          <div class="gal-info">
+            <span class="gal-title">Toner Refill</span>
+            <span class="gal-sub">30–60 min turnaround</span>
+          </div>
+          <div class="gal-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+        </div>
       </div>
-      <div class="gal-item reveal" style="--delay:.15s">
-        <div class="gal-ph gal-3"><i class="fas fa-box-open"></i><span>Cartridge Stock</span></div>
+
+      <div class="gal-item reveal" style="--delay:.15s" data-cat="supply" data-title="Cartridge Stock" data-desc="Original and compatible cartridges at competitive prices.">
+        <div class="gal-ph gal-3">
+          <div class="gal-icon"><i class="fas fa-box-open"></i></div>
+          <div class="gal-info">
+            <span class="gal-title">Cartridge Stock</span>
+            <span class="gal-sub">All brands available</span>
+          </div>
+          <div class="gal-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+        </div>
       </div>
-      <div class="gal-item reveal" style="--delay:.2s">
-        <div class="gal-ph gal-4"><i class="fas fa-tools"></i><span>Workshop</span></div>
+
+      <div class="gal-item reveal" style="--delay:.2s" data-cat="workshop" data-title="Our Workshop" data-desc="Fully equipped workshop for all types of printer servicing.">
+        <div class="gal-ph gal-4">
+          <div class="gal-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+          <div class="gal-info">
+            <span class="gal-title">Our Workshop</span>
+            <span class="gal-sub">Vartak Nagar, Mumbai</span>
+          </div>
+          <div class="gal-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+        </div>
       </div>
-      <div class="gal-item reveal" style="--delay:.25s">
-        <div class="gal-ph gal-5"><i class="fas fa-cogs"></i><span>Maintenance</span></div>
+
+      <div class="gal-item reveal" style="--delay:.25s" data-cat="repair" data-title="Maintenance" data-desc="Preventive servicing and AMC contracts for offices.">
+        <div class="gal-ph gal-5">
+          <div class="gal-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="gal-info">
+            <span class="gal-title">Maintenance</span>
+            <span class="gal-sub">AMC contracts available</span>
+          </div>
+          <div class="gal-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+        </div>
       </div>
-      <div class="gal-item reveal" style="--delay:.3s">
-        <div class="gal-ph gal-6"><i class="fas fa-check-double"></i><span>Quality Check</span></div>
+
+      <div class="gal-item reveal" style="--delay:.3s" data-cat="toner" data-title="Quality Check" data-desc="Every refill and repair goes through a strict quality check.">
+        <div class="gal-ph gal-6">
+          <div class="gal-icon"><i class="fas fa-check-double"></i></div>
+          <div class="gal-info">
+            <span class="gal-title">Quality Check</span>
+            <span class="gal-sub">100% tested before delivery</span>
+          </div>
+          <div class="gal-overlay">
+            <i class="fas fa-expand"></i>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="gal-lightbox" id="galLightbox" role="dialog" aria-modal="true" aria-label="Gallery lightbox">
+  <button class="gal-lb-close" id="galLbClose" aria-label="Close"><i class="fas fa-xmark"></i></button>
+  <div class="gal-lb-content">
+    <div class="gal-lb-visual" id="galLbVisual"></div>
+    <div class="gal-lb-text">
+      <h3 id="galLbTitle"></h3>
+      <p id="galLbDesc"></p>
+      <a href="#contact" class="btn btn-primary ripple" id="galLbCta">Book This Service <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials section" id="testimonials">

@@ -2,6 +2,21 @@
    YESH ENTERPRISES – script.js
    ============================================================ */
 
+// ── MAGNETIC NAV LINKS ──
+document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width  / 2;
+    const cy = rect.top  + rect.height / 2;
+    const dx = (e.clientX - cx) * 0.35;
+    const dy = (e.clientY - cy) * 0.35;
+    el.style.transform = `translate(${dx}px, ${dy}px)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = '';
+  });
+});
+
 // ── YEAR ──
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -104,7 +119,53 @@ function type() {
 }
 type();
 
-// ── SCROLL REVEAL ──
+// ── GALLERY LIGHTBOX + TILT ──
+const galItems  = document.querySelectorAll('.gal-item');
+const lightbox  = document.getElementById('galLightbox');
+const lbClose   = document.getElementById('galLbClose');
+const lbVisual  = document.getElementById('galLbVisual');
+const lbTitle   = document.getElementById('galLbTitle');
+const lbDesc    = document.getElementById('galLbDesc');
+const lbCta     = document.getElementById('galLbCta');
+
+// Lightbox open
+galItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const ph = item.querySelector('.gal-ph');
+    const cls = [...ph.classList].find(c => c.startsWith('gal-') && c !== 'gal-ph');
+    lbVisual.className = `gal-lb-visual ${cls || ''}`;
+    lbVisual.innerHTML = item.querySelector('.gal-icon').innerHTML;
+    lbTitle.textContent = item.dataset.title;
+    lbDesc.textContent  = item.dataset.desc;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Lightbox close
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+lbCta.addEventListener('click', closeLightbox);
+
+// 3D tilt on hover
+galItems.forEach(item => {
+  item.addEventListener('mousemove', e => {
+    const r    = item.getBoundingClientRect();
+    const x    = (e.clientX - r.left) / r.width  - 0.5;
+    const y    = (e.clientY - r.top)  / r.height - 0.5;
+    item.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-5px) scale(1.02)`;
+  });
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = '';
+  });
+});
+
+
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
