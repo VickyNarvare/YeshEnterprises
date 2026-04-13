@@ -17,7 +17,130 @@ document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
   });
 });
 
-// ── YEAR ──
+// ── AURORA BACKGROUND ──
+(function () {
+  const canvas = document.getElementById('auroraCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W, H;
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    buildStars();
+  }
+
+  /* ── Stars ── */
+  let stars = [];
+  function buildStars() {
+    stars = Array.from({ length: 120 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.2 + 0.2,
+      a: Math.random() * 0.6 + 0.1,
+      twinkle: Math.random() * Math.PI * 2
+    }));
+  }
+
+  function drawStars(t) {
+    stars.forEach(s => {
+      const alpha = s.a * (0.5 + 0.5 * Math.sin(s.twinkle + t * 0.0008));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+      ctx.fill();
+    });
+  }
+
+  /* ── Aurora waves ── */
+  // Each wave: color, base opacity, speed, phase offset, amplitude, frequency, vertical position
+  const waves = [
+    // Cyan layers
+    { r:0,   g:180, b:216, a:0.22, sp:0.00038, ph:0.0, amp:0.14, fr:1.1, vy:0.38 },
+    { r:0,   g:210, b:240, a:0.14, sp:0.00025, ph:1.8, amp:0.10, fr:1.7, vy:0.30 },
+    { r:0,   g:150, b:200, a:0.10, sp:0.00055, ph:3.2, amp:0.18, fr:0.8, vy:0.50 },
+    // Magenta layers
+    { r:224, g:64,  b:251, a:0.18, sp:0.00030, ph:2.1, amp:0.12, fr:1.3, vy:0.42 },
+    { r:200, g:40,  b:220, a:0.12, sp:0.00042, ph:4.5, amp:0.16, fr:0.9, vy:0.28 },
+    // Yellow accent
+    { r:255, g:214, b:0,   a:0.09, sp:0.00048, ph:1.0, amp:0.08, fr:2.0, vy:0.22 },
+    // Deep blue base wash
+    { r:30,  g:30,  b:120, a:0.20, sp:0.00018, ph:0.5, amp:0.20, fr:0.6, vy:0.60 },
+    // Teal shimmer
+    { r:0,   g:230, b:180, a:0.08, sp:0.00060, ph:2.8, amp:0.09, fr:2.4, vy:0.18 },
+  ];
+
+  function waveY(wave, x, t) {
+    const norm  = x / W;
+    const phase = t * wave.sp + wave.ph;
+    return H * (wave.vy
+      + wave.amp * Math.sin(norm * Math.PI * wave.fr * 2   + phase)
+      + wave.amp * 0.45 * Math.sin(norm * Math.PI * wave.fr * 3.9 + phase * 1.4)
+      + wave.amp * 0.22 * Math.sin(norm * Math.PI * wave.fr * 7.1 + phase * 0.6)
+      + wave.amp * 0.10 * Math.cos(norm * Math.PI * wave.fr * 11  + phase * 2.1)
+    );
+  }
+
+  function drawWave(wave, t) {
+    // pulse opacity gently
+    const pulse = 0.75 + 0.25 * Math.sin(t * 0.00060 + wave.ph);
+    const alpha = wave.a * pulse;
+
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0,    `rgba(${wave.r},${wave.g},${wave.b},0)`);
+    grad.addColorStop(0.15, `rgba(${wave.r},${wave.g},${wave.b},${alpha * 0.6})`);
+    grad.addColorStop(0.45, `rgba(${wave.r},${wave.g},${wave.b},${alpha})`);
+    grad.addColorStop(0.75, `rgba(${wave.r},${wave.g},${wave.b},${alpha * 0.4})`);
+    grad.addColorStop(1,    `rgba(${wave.r},${wave.g},${wave.b},0)`);
+
+    ctx.beginPath();
+    ctx.moveTo(0, H);
+    for (let x = 0; x <= W; x += 3) {
+      ctx.lineTo(x, waveY(wave, x, t));
+    }
+    ctx.lineTo(W, H);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  /* ── Vignette ── */
+  function drawVignette() {
+    const vg = ctx.createRadialGradient(W/2, H/2, H * 0.1, W/2, H/2, H * 0.85);
+    vg.addColorStop(0, 'rgba(0,0,0,0)');
+    vg.addColorStop(1, 'rgba(0,0,0,0.55)');
+    ctx.fillStyle = vg;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  /* ── Render loop ── */
+  function animate(ts) {
+    ctx.clearRect(0, 0, W, H);
+
+    // deep dark base
+    ctx.fillStyle = '#07071a';
+    ctx.fillRect(0, 0, W, H);
+
+    // stars first
+    drawStars(ts);
+
+    // aurora waves with screen blend
+    ctx.globalCompositeOperation = 'screen';
+    waves.forEach(w => drawWave(w, ts));
+    ctx.globalCompositeOperation = 'source-over';
+
+    // vignette on top
+    drawVignette();
+
+    requestAnimationFrame(animate);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(animate);
+})();
+
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // ── NAVBAR TOGGLE ──

@@ -490,7 +490,7 @@ img {
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
-  background: var(--dark);
+  background: #0a0a18;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -500,73 +500,28 @@ img {
   overflow: hidden
 }
 
-/* subtle dot-grid background */
-.hero-grid-bg {
+/* Aurora canvas */
+.hero-aurora {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,.045) 1px, transparent 1px);
-  background-size: 36px 36px;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 0
 }
 
-.ink-blob {
+/* subtle dot-grid background */
+.hero-grid-bg {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: .13;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 36px 36px;
   pointer-events: none;
-  animation: blobDrift 12s ease-in-out infinite alternate
+  z-index: 1
 }
 
-.b1 {
-  width: 600px;
-  height: 600px;
-  background: var(--c);
-  top: -160px;
-  left: -160px;
-  animation-delay: 0s
-}
-
-.b2 {
-  width: 480px;
-  height: 480px;
-  background: var(--m);
-  bottom: -100px;
-  right: 40px;
-  animation-delay: -4s
-}
-
-.b3 {
-  width: 340px;
-  height: 340px;
-  background: var(--y);
-  top: 50%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  animation-delay: -8s
-}
-
-.b4 {
-  width: 260px;
-  height: 260px;
-  background: var(--m);
-  top: 10%;
-  right: 20%;
-  opacity: .07;
-  animation-delay: -2s
-}
-
-@keyframes blobDrift {
-  0%   { transform: translate(0, 0) scale(1) }
-  100% { transform: translate(30px, 20px) scale(1.08) }
-}
-
-.b3 { animation: blobDrift3 14s ease-in-out infinite alternate }
-@keyframes blobDrift3 {
-  0%   { transform: translate(-50%, -50%) scale(1) }
-  100% { transform: translate(calc(-50% + 24px), calc(-50% + 18px)) scale(1.1) }
-}
+/* remove old ink blobs */
+.ink-blob { display: none }
 
 .hero-inner {
   display: flex;
@@ -578,7 +533,6 @@ img {
   position: relative;
   z-index: 2
 }
-
 .hero-text {
   flex: 1
 }
@@ -726,16 +680,21 @@ img {
 /* ── Printer visual ── */
 .hero-visual { flex-shrink: 0 }
 
+.hero-visual {
+  flex-shrink: 0;
+  position: relative
+}
+
 .printer-card {
   position: relative;
   background: var(--neu-bg);
-  border: 1px solid rgba(255,255,255,.07);
-  border-radius: 28px;
-  padding: 40px 36px 28px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+  padding: 20px 22px 18px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 18px;
+  gap: 14px;
+  width: 280px;
   animation: float 4.5s ease-in-out infinite;
   box-shadow: var(--neu-raised-lg)
 }
@@ -743,8 +702,8 @@ img {
 .printer-glow {
   position: absolute;
   inset: -1px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, rgba(0,180,216,.18), rgba(224,64,251,.12), transparent 60%);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(0,180,216,.15), rgba(224,64,251,.1), transparent 60%);
   pointer-events: none;
   z-index: 0
 }
@@ -753,50 +712,204 @@ img {
 
 @keyframes float {
   0%, 100% { transform: translateY(0) }
-  50%       { transform: translateY(-18px) }
+  50%       { transform: translateY(-14px) }
 }
 
-.printer-svg {
-  width: 200px;
-  height: 170px;
-  filter: drop-shadow(0 8px 24px rgba(0,180,216,.2))
-}
-
-.ink-drops {
+/* card header */
+.pc-header {
   display: flex;
-  gap: 10px
+  align-items: center;
+  gap: 7px
 }
 
-.drop {
-  width: 20px;
-  height: 20px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg)
+.pc-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0
 }
 
-.d-c { background: var(--c) }
-.d-m { background: var(--m) }
-.d-y { background: var(--y) }
-.d-k { background: rgba(255,255,255,.25) }
+.pc-status-text {
+  font-size: .72rem;
+  font-weight: 700;
+  color: #4ade80;
+  flex: 1
+}
 
-/* brand pills under printer */
+.pc-model {
+  font-size: .68rem;
+  color: rgba(255,255,255,.3)
+}
+
+/* printer SVG */
+.printer-svg {
+  width: 100%;
+  height: 140px;
+  filter: drop-shadow(0 6px 18px rgba(0,180,216,.25))
+}
+
+/* animated paper */
+.pc-paper {
+  animation: paperOut 2.4s ease-in-out infinite
+}
+
+@keyframes paperOut {
+  0%,100% { transform: translateY(0) }
+  50%      { transform: translateY(-5px) }
+}
+
+/* ink levels */
+.pc-inks {
+  display: flex;
+  flex-direction: column;
+  gap: 7px
+}
+
+.pc-ink {
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.pc-ink-label {
+  font-size: .68rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.5);
+  width: 10px;
+  text-align: center
+}
+
+.pc-ink-bar {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,.07);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: var(--neu-inset)
+}
+
+.pc-ink-fill {
+  height: 100%;
+  width: var(--pct);
+  background: var(--clr);
+  border-radius: 3px;
+  animation: inkLoad .9s cubic-bezier(.23,1,.32,1) both
+}
+
+@keyframes inkLoad {
+  from { width: 0 }
+  to   { width: var(--pct) }
+}
+
+.pc-ink-pct {
+  font-size: .62rem;
+  color: rgba(255,255,255,.3);
+  width: 26px;
+  text-align: right
+}
+
+/* print job */
+.pc-job {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: var(--neu-inset)
+}
+
+.pc-job-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: .68rem;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 7px
+}
+
+.pc-job-top i { color: var(--c); margin-right: 4px }
+
+.pc-job-pct { color: var(--c); font-weight: 700 }
+
+.pc-job-bar {
+  height: 4px;
+  background: rgba(255,255,255,.07);
+  border-radius: 2px;
+  overflow: hidden
+}
+
+.pc-job-fill {
+  height: 100%;
+  width: 38%;
+  background: linear-gradient(90deg, var(--c), var(--m));
+  border-radius: 2px;
+  animation: jobProgress 3s ease-in-out infinite alternate
+}
+
+@keyframes jobProgress {
+  0%   { width: 30% }
+  100% { width: 70% }
+}
+
+/* brand pills */
 .printer-brands {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center
+  gap: 5px;
+  flex-wrap: wrap
 }
 
 .printer-brands span {
-  font-size: .7rem;
+  font-size: .62rem;
   font-weight: 700;
-  letter-spacing: .5px;
-  color: rgba(255,255,255,.35);
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  padding: 3px 10px;
+  color: rgba(255,255,255,.3);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  padding: 2px 8px;
   border-radius: 50px
 }
+
+/* floating badges */
+.hero-badge-float {
+  position: absolute;
+  background: var(--neu-bg);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: var(--neu-raised);
+  border-radius: 50px;
+  padding: 7px 14px;
+  font-size: .72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.75);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  animation: float 4.5s ease-in-out infinite
+}
+
+.hero-badge-float i { color: var(--c) }
+
+.hbf-1 {
+  top: -16px;
+  right: -20px;
+  animation-delay: -.5s
+}
+
+.hbf-2 {
+  bottom: 60px;
+  left: -30px;
+  animation-delay: -1.5s
+}
+
+.hbf-3 {
+  bottom: -16px;
+  right: 10px;
+  animation-delay: -2.5s
+}
+
+.hbf-1 i { color: var(--y) }
+.hbf-2 i { color: #4ade80 }
+.hbf-3 i { color: var(--y) }
 
 /* Scroll hint */
 .scroll-hint {
@@ -1054,6 +1167,23 @@ img {
 }
 
 .svc-cta-text strong { color: var(--white) }
+
+/* ── WAVE DIVIDERS ── */
+.wave-divider {
+  line-height: 0;
+  overflow: hidden;
+  margin-bottom: -2px
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 90px
+}
+
+.wave-hero-about {
+  background: #07071a  /* matches hero base */
+}
 
 /* ── ABOUT ── */
 .about {
