@@ -1,0 +1,17 @@
+{
+  "name": "YESH ENTERPRISES – Toner Refill & Printer Repair Mumbai",
+  "short_name": "YESH ENTERPRISES",
+  "description": "Mumbai's trusted toner refill and printer repair service. HP, Canon, Epson, Brother & all brands. Same-day service. Vartak Nagar, Mumbai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d1a",
+  "theme_color": "#0d0d1a",
+  "lang": "en-IN",
+  "orientation": "portrait-primary",
+  "categories": ["business", "utilities"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

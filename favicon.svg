@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="geometricPrecision">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0d1a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+
+  <!-- Subtle border glow -->
+  <rect width="64" height="64" rx="12" fill="none" stroke="rgba(0,180,216,0.25)" stroke-width="1.5"/>
+
+  <!-- Y — Cyan -->
+  <text x="3" y="46"
+    font-family="Arial Black, Impact, sans-serif"
+    font-weight="900"
+    font-size="30"
+    fill="#00B4D8"
+    letter-spacing="-1">Y</text>
+
+  <!-- E — Magenta -->
+  <text x="18" y="46"
+    font-family="Arial Black, Impact, sans-serif"
+    font-weight="900"
+    font-size="30"
+    fill="#E040FB"
+    letter-spacing="-1">E</text>
+
+  <!-- S — Yellow -->
+  <text x="33" y="46"
+    font-family="Arial Black, Impact, sans-serif"
+    font-weight="900"
+    font-size="30"
+    fill="#FFD600"
+    letter-spacing="-1">S</text>
+
+  <!-- H — White -->
+  <text x="47" y="46"
+    font-family="Arial Black, Impact, sans-serif"
+    font-weight="900"
+    font-size="30"
+    fill="#ffffff"
+    letter-spacing="-1">H</text>
+
+  <!-- Underline bar in CMYK gradient -->
+  <rect x="4" y="50" width="13" height="2.5" rx="1.25" fill="#00B4D8"/>
+  <rect x="18" y="50" width="13" height="2.5" rx="1.25" fill="#E040FB"/>
+  <rect x="33" y="50" width="13" height="2.5" rx="1.25" fill="#FFD600"/>
+  <rect x="47" y="50" width="13" height="2.5" rx="1.25" fill="#ffffff" opacity="0.6"/>
+</svg>
