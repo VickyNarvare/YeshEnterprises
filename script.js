@@ -379,6 +379,33 @@ function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
   if (el) el.addEventListener('input', () => setErr(id, ''));
 });
 
+// ── CONTACT UNAVAILABLE MODAL ──
+const cfModalOverlay = document.getElementById('cfModalOverlay');
+const cfTimerBar     = document.getElementById('cfTimerBar');
+let cfModalTimer     = null;
+
+function openCfModal() {
+  cfModalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // restart timer bar animation
+  cfTimerBar.classList.remove('running');
+  void cfTimerBar.offsetWidth; // reflow to restart animation
+  cfTimerBar.classList.add('running');
+  clearTimeout(cfModalTimer);
+  cfModalTimer = setTimeout(closeCfModal, 5000);
+}
+
+function closeCfModal() {
+  cfModalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+  clearTimeout(cfModalTimer);
+}
+
+cfModalOverlay.addEventListener('click', e => {
+  if (e.target === cfModalOverlay) closeCfModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCfModal(); });
+
 form.addEventListener('submit', e => {
   e.preventDefault();
   clearErrs();
@@ -393,10 +420,8 @@ form.addEventListener('submit', e => {
   if (!msg)               { setErr('fmsg',   'Please enter a message.');          ok = false; }
 
   if (ok) {
-    feedback.className = 'form-feedback success';
-    feedback.textContent = '✓ Message sent! We\'ll get back to you shortly.';
     form.reset();
-    setTimeout(() => { feedback.className = 'form-feedback'; feedback.textContent = ''; }, 6000);
+    openCfModal();
   } else {
     feedback.className = 'form-feedback error';
     feedback.textContent = 'Please fix the errors above and try again.';

@@ -3122,3 +3122,94 @@ img {
 
   .printer-brands { display: none }
 }
+
+/* ── CONTACT FORM UNAVAILABLE MODAL ── */
+.cf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .65);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease
+}
+
+.cf-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all
+}
+
+.cf-modal {
+  background: var(--neu-bg);
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 24px;
+  padding: 40px 36px 32px;
+  max-width: 420px;
+  width: calc(100% - 40px);
+  text-align: center;
+  box-shadow: var(--neu-raised-lg);
+  transform: translateY(20px) scale(.96);
+  transition: transform .35s cubic-bezier(.23, 1, .32, 1)
+}
+
+.cf-modal-overlay.open .cf-modal {
+  transform: translateY(0) scale(1)
+}
+
+.cf-modal-icon {
+  font-size: 3rem;
+  color: var(--m);
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 12px rgba(224, 64, 251, .5))
+}
+
+.cf-modal h3 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 10px
+}
+
+.cf-modal p {
+  color: rgba(255, 255, 255, .5);
+  font-size: .95rem;
+  line-height: 1.65;
+  margin-bottom: 24px
+}
+
+.cf-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px
+}
+
+.cf-modal-timer {
+  height: 4px;
+  background: rgba(255, 255, 255, .08);
+  border-radius: 2px;
+  overflow: hidden
+}
+
+.cf-timer-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--c), var(--m));
+  border-radius: 2px;
+  transform-origin: left;
+  animation: none
+}
+
+.cf-timer-bar.running {
+  animation: timerShrink 5s linear forwards
+}
+
+@keyframes timerShrink {
+  from { transform: scaleX(1) }
+  to   { transform: scaleX(0) }
+}
