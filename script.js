@@ -1,13 +1,10 @@
-/* ============================================================
-   YESH ENTERPRISES – script.js
-   ============================================================ */
+﻿
 
-// ── MAGNETIC NAV LINKS ──
 document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
   el.addEventListener('mousemove', e => {
     const rect = el.getBoundingClientRect();
-    const cx = rect.left + rect.width  / 2;
-    const cy = rect.top  + rect.height / 2;
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
     const dx = (e.clientX - cx) * 0.35;
     const dy = (e.clientY - cy) * 0.35;
     el.style.transform = `translate(${dx}px, ${dy}px)`;
@@ -17,7 +14,6 @@ document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
   });
 });
 
-// ── AURORA BACKGROUND ──
 (function () {
   const canvas = document.getElementById('auroraCanvas');
   if (!canvas) return;
@@ -25,12 +21,12 @@ document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
 
   let W, H;
   function resize() {
-    W = canvas.width  = canvas.offsetWidth;
+    W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
     buildStars();
   }
 
-  /* ── Stars ── */
+
   let stars = [];
   function buildStars() {
     stars = Array.from({ length: 120 }, () => ({
@@ -52,46 +48,46 @@ document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
     });
   }
 
-  /* ── Aurora waves ── */
-  // Each wave: color, base opacity, speed, phase offset, amplitude, frequency, vertical position
+
+
   const waves = [
-    // Cyan layers
-    { r:0,   g:180, b:216, a:0.22, sp:0.00038, ph:0.0, amp:0.14, fr:1.1, vy:0.38 },
-    { r:0,   g:210, b:240, a:0.14, sp:0.00025, ph:1.8, amp:0.10, fr:1.7, vy:0.30 },
-    { r:0,   g:150, b:200, a:0.10, sp:0.00055, ph:3.2, amp:0.18, fr:0.8, vy:0.50 },
-    // Magenta layers
-    { r:224, g:64,  b:251, a:0.18, sp:0.00030, ph:2.1, amp:0.12, fr:1.3, vy:0.42 },
-    { r:200, g:40,  b:220, a:0.12, sp:0.00042, ph:4.5, amp:0.16, fr:0.9, vy:0.28 },
-    // Yellow accent
-    { r:255, g:214, b:0,   a:0.09, sp:0.00048, ph:1.0, amp:0.08, fr:2.0, vy:0.22 },
-    // Deep blue base wash
-    { r:30,  g:30,  b:120, a:0.20, sp:0.00018, ph:0.5, amp:0.20, fr:0.6, vy:0.60 },
-    // Teal shimmer
-    { r:0,   g:230, b:180, a:0.08, sp:0.00060, ph:2.8, amp:0.09, fr:2.4, vy:0.18 },
+
+    { r: 0, g: 180, b: 216, a: 0.22, sp: 0.00038, ph: 0.0, amp: 0.14, fr: 1.1, vy: 0.38 },
+    { r: 0, g: 210, b: 240, a: 0.14, sp: 0.00025, ph: 1.8, amp: 0.10, fr: 1.7, vy: 0.30 },
+    { r: 0, g: 150, b: 200, a: 0.10, sp: 0.00055, ph: 3.2, amp: 0.18, fr: 0.8, vy: 0.50 },
+
+    { r: 224, g: 64, b: 251, a: 0.18, sp: 0.00030, ph: 2.1, amp: 0.12, fr: 1.3, vy: 0.42 },
+    { r: 200, g: 40, b: 220, a: 0.12, sp: 0.00042, ph: 4.5, amp: 0.16, fr: 0.9, vy: 0.28 },
+
+    { r: 255, g: 214, b: 0, a: 0.09, sp: 0.00048, ph: 1.0, amp: 0.08, fr: 2.0, vy: 0.22 },
+
+    { r: 30, g: 30, b: 120, a: 0.20, sp: 0.00018, ph: 0.5, amp: 0.20, fr: 0.6, vy: 0.60 },
+
+    { r: 0, g: 230, b: 180, a: 0.08, sp: 0.00060, ph: 2.8, amp: 0.09, fr: 2.4, vy: 0.18 },
   ];
 
   function waveY(wave, x, t) {
-    const norm  = x / W;
+    const norm = x / W;
     const phase = t * wave.sp + wave.ph;
     return H * (wave.vy
-      + wave.amp * Math.sin(norm * Math.PI * wave.fr * 2   + phase)
+      + wave.amp * Math.sin(norm * Math.PI * wave.fr * 2 + phase)
       + wave.amp * 0.45 * Math.sin(norm * Math.PI * wave.fr * 3.9 + phase * 1.4)
       + wave.amp * 0.22 * Math.sin(norm * Math.PI * wave.fr * 7.1 + phase * 0.6)
-      + wave.amp * 0.10 * Math.cos(norm * Math.PI * wave.fr * 11  + phase * 2.1)
+      + wave.amp * 0.10 * Math.cos(norm * Math.PI * wave.fr * 11 + phase * 2.1)
     );
   }
 
   function drawWave(wave, t) {
-    // pulse opacity gently
+
     const pulse = 0.75 + 0.25 * Math.sin(t * 0.00060 + wave.ph);
     const alpha = wave.a * pulse;
 
     const grad = ctx.createLinearGradient(0, 0, 0, H);
-    grad.addColorStop(0,    `rgba(${wave.r},${wave.g},${wave.b},0)`);
+    grad.addColorStop(0, `rgba(${wave.r},${wave.g},${wave.b},0)`);
     grad.addColorStop(0.15, `rgba(${wave.r},${wave.g},${wave.b},${alpha * 0.6})`);
     grad.addColorStop(0.45, `rgba(${wave.r},${wave.g},${wave.b},${alpha})`);
     grad.addColorStop(0.75, `rgba(${wave.r},${wave.g},${wave.b},${alpha * 0.4})`);
-    grad.addColorStop(1,    `rgba(${wave.r},${wave.g},${wave.b},0)`);
+    grad.addColorStop(1, `rgba(${wave.r},${wave.g},${wave.b},0)`);
 
     ctx.beginPath();
     ctx.moveTo(0, H);
@@ -104,32 +100,28 @@ document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
     ctx.fill();
   }
 
-  /* ── Vignette ── */
+
   function drawVignette() {
-    const vg = ctx.createRadialGradient(W/2, H/2, H * 0.1, W/2, H/2, H * 0.85);
+    const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.1, W / 2, H / 2, H * 0.85);
     vg.addColorStop(0, 'rgba(0,0,0,0)');
     vg.addColorStop(1, 'rgba(0,0,0,0.55)');
     ctx.fillStyle = vg;
     ctx.fillRect(0, 0, W, H);
   }
 
-  /* ── Render loop ── */
+
   function animate(ts) {
     ctx.clearRect(0, 0, W, H);
 
-    // deep dark base
     ctx.fillStyle = '#07071a';
     ctx.fillRect(0, 0, W, H);
 
-    // stars first
     drawStars(ts);
 
-    // aurora waves with screen blend
     ctx.globalCompositeOperation = 'screen';
     waves.forEach(w => drawWave(w, ts));
     ctx.globalCompositeOperation = 'source-over';
 
-    // vignette on top
     drawVignette();
 
     requestAnimationFrame(animate);
@@ -140,12 +132,10 @@ document.querySelectorAll('.nav-link, .nav-brand').forEach(el => {
   requestAnimationFrame(animate);
 })();
 
-
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ── NAVBAR TOGGLE ──
-const navToggle  = document.getElementById('navToggle');
-const navLinks   = document.getElementById('navLinks');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
 const navOverlay = document.getElementById('navOverlay');
 
 function openMenu() {
@@ -161,9 +151,9 @@ function closeMenu() {
   navOverlay.classList.remove('active');
   navToggle.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
-  // also collapse any open sub-menus
+
   document.querySelectorAll('.dropdown.sub-open').forEach(d => d.classList.remove('sub-open'));
-  document.querySelectorAll('.sub-toggle[aria-expanded="true"]').forEach(b => b.setAttribute('aria-expanded','false'));
+  document.querySelectorAll('.sub-toggle[aria-expanded="true"]').forEach(b => b.setAttribute('aria-expanded', 'false'));
 }
 navToggle.addEventListener('click', () =>
   navToggle.classList.contains('is-open') ? closeMenu() : openMenu()
@@ -172,20 +162,18 @@ navOverlay.addEventListener('click', closeMenu);
 navLinks.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeMenu));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-// ── SERVICES SUB-MENU TOGGLE (mobile tap) ──
 document.querySelectorAll('.sub-toggle').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
     const dropdown = btn.closest('.has-dropdown').querySelector('.dropdown');
-    const isOpen   = btn.getAttribute('aria-expanded') === 'true';
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
     dropdown.classList.toggle('sub-open', !isOpen);
   });
 });
-// Close sub-menu when a sub-link is clicked
+
 document.querySelectorAll('.sub-link').forEach(l => l.addEventListener('click', closeMenu));
 
-// ── ACTIVE NAV ON SCROLL ──
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-link');
 function setActiveNav() {
@@ -201,14 +189,12 @@ function setActiveNav() {
 }
 window.addEventListener('scroll', setActiveNav, { passive: true });
 
-// ── BACK TO TOP ──
 const backTop = document.getElementById('backTop');
 window.addEventListener('scroll', () => {
   backTop.classList.toggle('show', window.scrollY > 400);
 }, { passive: true });
 backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ── TESTIMONIAL INFINITE MARQUEE ──
 const track = document.getElementById('testiTrack');
 if (track) {
   track.innerHTML = track.innerHTML + track.innerHTML;
@@ -218,7 +204,6 @@ if (track2) {
   track2.innerHTML = track2.innerHTML + track2.innerHTML;
 }
 
-// ── TYPING EFFECT ──
 const phrases = [
   'Toner Refills.',
   'Printer Repairs.',
@@ -242,16 +227,17 @@ function type() {
 }
 type();
 
-// ── GALLERY LIGHTBOX + TILT ──
-const galItems  = document.querySelectorAll('.gal-item');
-const lightbox  = document.getElementById('galLightbox');
-const lbClose   = document.getElementById('galLbClose');
-const lbVisual  = document.getElementById('galLbVisual');
-const lbTitle   = document.getElementById('galLbTitle');
-const lbDesc    = document.getElementById('galLbDesc');
-const lbCta     = document.getElementById('galLbCta');
+const galItems = document.querySelectorAll('.gal-item');
+const lightbox = document.getElementById('galLightbox');
+const lbClose = document.getElementById('galLbClose');
+const lbVisual = document.getElementById('galLbVisual');
+const lbTitle = document.getElementById('galLbTitle');
+const lbDesc = document.getElementById('galLbDesc');
+const lbTag = document.getElementById('galLbTag');
+const lbFeatures = document.getElementById('galLbFeatures');
+const lbMeta = document.getElementById('galLbMeta');
+const lbCta = document.getElementById('galLbCta');
 
-// Lightbox open
 galItems.forEach(item => {
   item.addEventListener('click', () => {
     const ph = item.querySelector('.gal-ph');
@@ -259,13 +245,28 @@ galItems.forEach(item => {
     lbVisual.className = `gal-lb-visual ${cls || ''}`;
     lbVisual.innerHTML = item.querySelector('.gal-icon').innerHTML;
     lbTitle.textContent = item.dataset.title;
-    lbDesc.textContent  = item.dataset.desc;
+    lbDesc.textContent = item.dataset.desc;
+
+    if (lbTag) {
+      lbTag.textContent = item.dataset.tag || '';
+      lbTag.style.display = item.dataset.tag ? '' : 'none';
+    }
+
+    if (lbFeatures) {
+      const feats = (item.dataset.features || '').split('|').filter(Boolean);
+      lbFeatures.innerHTML = feats.map(f => `<li><i class="fas fa-check-circle"></i><span>${f}</span></li>`).join('');
+    }
+
+    if (lbMeta) {
+      lbMeta.textContent = item.dataset.meta || '';
+      lbMeta.style.display = item.dataset.meta ? '' : 'none';
+    }
+
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
 });
 
-// Lightbox close
 function closeLightbox() {
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
@@ -275,12 +276,11 @@ lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightb
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 lbCta.addEventListener('click', closeLightbox);
 
-// 3D tilt on hover
 galItems.forEach(item => {
   item.addEventListener('mousemove', e => {
-    const r    = item.getBoundingClientRect();
-    const x    = (e.clientX - r.left) / r.width  - 0.5;
-    const y    = (e.clientY - r.top)  / r.height - 0.5;
+    const r = item.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
     item.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-5px) scale(1.02)`;
   });
   item.addEventListener('mouseleave', () => {
@@ -288,12 +288,11 @@ galItems.forEach(item => {
   });
 });
 
-
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    // stagger siblings
+
     const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
     const idx = siblings.indexOf(entry.target);
     const base = parseFloat(getComputedStyle(entry.target).getPropertyValue('--delay')) || 0;
@@ -303,7 +302,6 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 revealEls.forEach(el => revealObs.observe(el));
 
-// ── FAQ ACCORDION ──
 const faqItems = document.querySelectorAll('.faq-item');
 
 function openFaq(item) {
@@ -317,7 +315,6 @@ function closeAllFaq() {
   });
 }
 
-// First item already open via HTML; no need to force open
 faqItems.forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
     const isOpen = item.querySelector('.faq-q').getAttribute('aria-expanded') === 'true';
@@ -326,12 +323,11 @@ faqItems.forEach(item => {
   });
 });
 
-// ── CUSTOM SELECT ──
 const customSelect = document.getElementById('customSelect');
-const csTrigger    = document.getElementById('csTrigger');
-const csDropdown   = document.getElementById('csDropdown');
-const csValue      = document.getElementById('csValue');
-const fsHidden     = document.getElementById('fservice');
+const csTrigger = document.getElementById('csTrigger');
+const csDropdown = document.getElementById('csDropdown');
+const csValue = document.getElementById('csValue');
+const fsHidden = document.getElementById('fservice');
 
 function closeSelect() {
   customSelect.classList.remove('open');
@@ -359,8 +355,7 @@ csDropdown.querySelectorAll('.cs-option').forEach(opt => {
 document.addEventListener('click', closeSelect);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSelect(); });
 
-
-const form     = document.getElementById('contactForm');
+const form = document.getElementById('contactForm');
 const feedback = document.getElementById('formFeedback');
 
 function setErr(id, msg) {
@@ -370,24 +365,23 @@ function setErr(id, msg) {
   if (inp) inp.classList.toggle('err-field', !!msg);
 }
 function clearErrs() {
-  ['fname','femail','fmsg'].forEach(id => setErr(id, ''));
+  ['fname', 'femail', 'fmsg'].forEach(id => setErr(id, ''));
 }
 function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-['fname','femail','fmsg'].forEach(id => {
+['fname', 'femail', 'fmsg'].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.addEventListener('input', () => setErr(id, ''));
 });
 
-// ── CONTACT UNAVAILABLE MODAL ──
 const cfModalOverlay = document.getElementById('cfModalOverlay');
-const cfTimerBar     = document.getElementById('cfTimerBar');
-let cfModalTimer     = null;
+const cfTimerBar = document.getElementById('cfTimerBar');
+let cfModalTimer = null;
 
 function openCfModal() {
   cfModalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
-  // restart timer bar animation
+
   cfTimerBar.classList.remove('running');
   void cfTimerBar.offsetWidth; // reflow to restart animation
   cfTimerBar.classList.add('running');
@@ -412,12 +406,12 @@ form.addEventListener('submit', e => {
   let ok = true;
   const name = document.getElementById('fname').value.trim();
   const email = document.getElementById('femail').value.trim();
-  const msg   = document.getElementById('fmsg').value.trim();
+  const msg = document.getElementById('fmsg').value.trim();
 
-  if (!name)              { setErr('fname',  'Please enter your name.');          ok = false; }
-  if (!email)             { setErr('femail', 'Please enter your email.');         ok = false; }
+  if (!name) { setErr('fname', 'Please enter your name.'); ok = false; }
+  if (!email) { setErr('femail', 'Please enter your email.'); ok = false; }
   else if (!validEmail(email)) { setErr('femail', 'Enter a valid email address.'); ok = false; }
-  if (!msg)               { setErr('fmsg',   'Please enter a message.');          ok = false; }
+  if (!msg) { setErr('fmsg', 'Please enter a message.'); ok = false; }
 
   if (ok) {
     form.reset();
@@ -429,7 +423,6 @@ form.addEventListener('submit', e => {
   }
 });
 
-// ── NEWSLETTER VALIDATION ──
 const nlForm = document.getElementById('newsletterForm');
 nlForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -445,3 +438,4 @@ nlForm.addEventListener('submit', e => {
   nlForm.reset();
   setTimeout(() => { suc.style.display = 'none'; }, 5000);
 });
+
