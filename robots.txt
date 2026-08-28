@@ -7,7 +7,7 @@ Disallow: /private/
 Disallow: /*.json$
 
 # Sitemap location
-Sitemap: https://yeshenterprises.vercel.app/sitemap.xml
+Sitemap: https://yashenterprises.vercel.app/sitemap.xml
 
 # Crawl-delay for polite bots
 Crawl-delay: 10
@@ -24,4 +24,3 @@ Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
-

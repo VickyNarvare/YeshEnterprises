@@ -1,6 +1,6 @@
-# YESH ENTERPRISES – Business Website
+# yash ENTERPRISES – Business Website
 
-A fully responsive, modern dark-themed business website for **YESH ENTERPRISES**, a professional toner refill and printer service company based in Mumbai.
+A fully responsive, modern dark-themed business website for **yash ENTERPRISES**, a professional toner refill and printer service company based in Mumbai.
 
 ---
 
@@ -18,6 +18,7 @@ A fully responsive, modern dark-themed business website for **YESH ENTERPRISES**
 ## 🚀 Features
 
 ### Design
+
 - Full dark theme across all sections using CMYK-inspired palette (Cyan, Magenta, Yellow, Black)
 - Dot-grid background overlay on every section for depth
 - Animated ink blob backgrounds with drift animations
@@ -26,6 +27,7 @@ A fully responsive, modern dark-themed business website for **YESH ENTERPRISES**
 - Gradient accent dividers and CMYK pill badges
 
 ### Navigation
+
 - Floating pill-shaped sticky navbar with glassmorphism blur
 - Desktop: hover dropdown for Services with animated chevron
 - Mobile: slide-down panel with CMYK gradient accent line, full-width links, tap-to-expand Services accordion
@@ -35,18 +37,19 @@ A fully responsive, modern dark-themed business website for **YESH ENTERPRISES**
 
 ### Sections
 
-| Section | Description |
-|---|---|
-| Hero | Badge, typing effect, CMYK pills, stats row, floating printer card with glow |
-| About | Proprietor profile, stats, dark glassmorphism card |
-| Services | 4 dark cards with per-card color glow on hover, badges, turnaround time, bottom CTA strip |
-| Gallery | 6 gradient placeholder cards with hover zoom |
-| Testimonials | Rating summary bar + dual infinite marquee rows (opposite directions), 12 reviews |
-| FAQ | Two-column layout — sticky sidebar with CTA + trust badges, numbered accordion |
-| Contact | WhatsApp CTA, info cards, map placeholder, dark form with icon labels |
-| Footer | Top CTA banner, inline contact info, working hours, social icons, back-to-top |
+| Section      | Description                                                                               |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| Hero         | Badge, typing effect, CMYK pills, stats row, floating printer card with glow              |
+| About        | Proprietor profile, stats, dark glassmorphism card                                        |
+| Services     | 4 dark cards with per-card color glow on hover, badges, turnaround time, bottom CTA strip |
+| Gallery      | 6 gradient placeholder cards with hover zoom                                              |
+| Testimonials | Rating summary bar + dual infinite marquee rows (opposite directions), 12 reviews         |
+| FAQ          | Two-column layout — sticky sidebar with CTA + trust badges, numbered accordion            |
+| Contact      | WhatsApp CTA, info cards, map placeholder, dark form with icon labels                     |
+| Footer       | Top CTA banner, inline contact info, working hours, social icons, back-to-top             |
 
 ### JavaScript Features
+
 - Typing effect cycling through 5 service phrases
 - Scroll-triggered fade-in with staggered delays (IntersectionObserver)
 - Dual testimonial marquee cloning for seamless infinite loop
@@ -60,15 +63,15 @@ A fully responsive, modern dark-themed business website for **YESH ENTERPRISES**
 
 ## 🏢 Business Info
 
-| | |
-|---|---|
-| **Company** | YESH ENTERPRISES |
-| **Proprietor** | Dinesh Narvare |
-| **Phone** | +91 86554 66226 |
-| **Email** | narvaredinesh56@gmail.com |
-| **Address** | Vartak Nagar, Pokaran Road No. 1, Near Sai Baba Mandir, Mumbai |
-| **Hours** | Mon – Sat: 9:00 AM – 8:00 PM |
-| **WhatsApp** | wa.me/918655466226 |
+|                |                                                                |
+| -------------- | -------------------------------------------------------------- |
+| **Company**    | yash ENTERPRISES                                               |
+| **Proprietor** | Dinesh Narvare                                                 |
+| **Phone**      | +91 86554 66226                                                |
+| **Email**      | narvaredinesh56@gmail.com                                      |
+| **Address**    | Vartak Nagar, Pokaran Road No. 1, Near Sai Baba Mandir, Mumbai |
+| **Hours**      | Mon – Sat: 9:00 AM – 8:00 PM                                   |
+| **WhatsApp**   | wa.me/918655466226                                             |
 
 ---
 
@@ -83,12 +86,12 @@ A fully responsive, modern dark-themed business website for **YESH ENTERPRISES**
 
 ## 📱 Responsive Breakpoints
 
-| Breakpoint | Layout |
-|---|---|
-| `> 1024px` | Full desktop layout |
-| `≤ 1024px` | Stacked about/FAQ, 2-col footer |
-| `≤ 900px` | Single column hero, stacked contact grid |
-| `≤ 640px` | Mobile nav panel, single column all sections |
+| Breakpoint | Layout                                       |
+| ---------- | -------------------------------------------- |
+| `> 1024px` | Full desktop layout                          |
+| `≤ 1024px` | Stacked about/FAQ, 2-col footer              |
+| `≤ 900px`  | Single column hero, stacked contact grid     |
+| `≤ 640px`  | Mobile nav panel, single column all sections |
 
 ---
 
@@ -105,5 +108,5 @@ open index.html
 
 ---
 
-© 2026 YESH ENTERPRISES. All rights reserved.  
+© 2026 yash ENTERPRISES. All rights reserved.
 Designed & Developed by **Vicky Narvare**

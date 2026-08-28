@@ -438,4 +438,3 @@ nlForm.addEventListener('submit', e => {
   nlForm.reset();
   setTimeout(() => { suc.style.display = 'none'; }, 5000);
 });
-
